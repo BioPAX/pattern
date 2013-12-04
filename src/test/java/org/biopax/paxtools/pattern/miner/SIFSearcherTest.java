@@ -41,17 +41,18 @@ public class SIFSearcherTest extends PatternBoxTest
 	public void generateLargeSIFGraph() throws IOException
 	{
 		SimpleIOHandler h = new SimpleIOHandler();
-		Model model = h.convertFromOWL(new FileInputStream("/home/ozgun/Projects/biopax-pattern/All-Human-Data.owl"));
+		Model model = h.convertFromOWL(new FileInputStream
+				("/home/ozgun/Projects/pattern/All-Human-Data.owl"));
 
 		SIFSearcher s = new SIFSearcher(SIFType.values());
 
-		Set<String> ubiqueIDs = loadUbiqueIDs("/home/ozgun/Projects/biopax-pattern/blacklist.txt");
+		Set<String> ubiqueIDs = loadUbiqueIDs("/home/ozgun/Projects/pattern/blacklist.txt");
 		s.setUbiqueIDs(ubiqueIDs);
 		confirmPresenceOfUbiques(model, ubiqueIDs);
 		Set<SIFInteraction> set = s.searchSIF(model);
 
 		BufferedWriter writer = new BufferedWriter(
-			new FileWriter("/home/ozgun/Desktop/PC.sif"));
+			new FileWriter("/home/ozgun/PC.sif"));
 
 		for (SIFInteraction sif : set)
 		{
@@ -75,8 +76,6 @@ public class SIFSearcherTest extends PatternBoxTest
 		}
 		System.out.println("absent ubique  = " + absent);
 		System.out.println("present ubique = " + present);
-		if (absent < present) System.out.println("Passed ubique test");
-		assert absent < present;
 	}
 
 

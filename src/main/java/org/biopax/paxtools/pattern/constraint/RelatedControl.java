@@ -65,9 +65,17 @@ public class RelatedControl extends ConstraintAdapter
 		PhysicalEntity pe = (PhysicalEntity) match.get(ind[0]);
 		Conversion conv = (Conversion) match.get(ind[1]);
 
+		if (!(peType == RelType.INPUT && getConvParticipants(conv, RelType.INPUT).contains(pe)) ||
+			(peType == RelType.OUTPUT && getConvParticipants(conv, RelType.OUTPUT).contains(pe)))
+		{
+			System.out.println();
+		}
+
 		assert (peType == RelType.INPUT && getConvParticipants(conv, RelType.INPUT).contains(pe)) ||
 			(peType == RelType.OUTPUT && getConvParticipants(conv, RelType.OUTPUT).contains(pe)) :
-			"peType = " + peType + ", and related participant set does not contain this PE.";
+			"peType = " + peType + ", and related participant set does not contain this PE. Conv " +
+					"dir = " + getDirection(conv) + " conv.id=" + conv.getRDFId() + " pe.id=" +
+					pe.getRDFId();
 
 		boolean rightContains = conv.getRight().contains(pe);
 		boolean leftContains = conv.getLeft().contains(pe);
