@@ -1,0 +1,4 @@
+org.biopax.paxtools.pattern
+org.biopax.paxtools.pattern.constraint
+org.biopax.paxtools.pattern.miner
+org.biopax.paxtools.pattern.util
