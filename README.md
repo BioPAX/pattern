@@ -1,6 +1,4 @@
 # pattern
 
-## The BioPAX Pattern search library based on Paxtools.
+## BioPAX Pattern project's auto-generated docuentation, etc., web pages.
 
-
-(Was initially auto-exported/moved here from discontinued code.google.com/p/biopax-pattern)
